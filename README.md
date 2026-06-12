@@ -54,7 +54,7 @@ Windows segédeszköz-készlet debloat funkciókkal, rendszereszközökkel, karb
 
 ## Képek
 
-![Fő menü](screenshots/mainmenu.png)
+![Fő menü](screenshots/mainmenuhu.png)
 
 ![Nyelvválasztó](screenshots/lang.png)
 

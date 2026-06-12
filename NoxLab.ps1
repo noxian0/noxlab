@@ -99,7 +99,7 @@ $uDbl = [char]369   # ű
     $texts = @{
         en = @{
             MainMenu = 'Main Menu'
-            MenuPrompt = 'Choose a menu option using your keyboard [1,2,3,4,5,6,7,8,0]'
+            MenuPrompt = 'Choose a menu option: [1,2,3,4,5,6,7,8,0]'
             LanguageMenu = 'Language Selection'
             LanguagePrompt = 'Choose language [1,2,0]'
             Language1 = '[1] English'
@@ -250,7 +250,7 @@ $uDbl = [char]369   # ű
         }
         hu = @{
             MainMenu = "F${oDbl}men${uUm}"
-            MenuPrompt = "V${aAc}lassz men${uUm}pontot a billenty${uDbl}zettel [1,2,3,4,5,6,7,8,0]"
+            MenuPrompt = "V${aAc}lassz men${uUm}pontot: [1,2,3,4,5,6,7,8,0]"
             LanguageMenu = "Nyelv V${aAc}laszt${aAc}s"
             LanguagePrompt = "V${aAc}lassz nyelvet [1,2,0]"
             Language1 = '[1] Angol'
@@ -316,26 +316,26 @@ $uDbl = [char]369   # ű
             SettingsMenu = "Be${aAc}ll${iAc}t${aAc}sok"
             SettingsPrompt = "V${aAc}lassz be${aAc}ll${iAc}t${aAc}st [1,2,3,4,5,6,7,8,9,A,B,C,D,E,0]"
             Settings1 = "[1] Ultimate energiaell${aAc}t${aAc}s    - bekapcsol${aAc}s ${eAc}s aktiv${aAc}l${aAc}s"
-            Settings2 = "[2] Sticky Keys gyorsbillenty${uAc}   - tilt${aAc}s"
+            Settings2 = "[2] Sticky Keys gyorsbillenty${uDbl}   - tilt${aAc}s"
             Settings3 = "[3] Temp f${aAc}jlok t${oDbl}rl${eAc}se     - felhaszn${aAc}l${oAc}i ${eAc}s Windows temp"
             Settings4 = "[4] Telemetria ${eAc}s rekl${aAc}mok   - gyakori adatv${eAc}delmi szab${aAc}lyok"
             Settings5 = "[5] Windows Copilot t${oDbl}rl${eAc}se   - tilt${aAc}s ${eAc}s elt${aAc}vol${iAc}t${aAc}s"
             Settings6 = "[6] Klasszikus helyi men${uUm}    - Windows 11 men${uUm} v${aAc}lt${aAc}s"
-            Settings7 = "[7] S${oDbl}t${eAc}t t${eAc}ma                - vil${aAc}gos / s${oDbl}t${eAc}t v${aAc}lt${aAc}s"
+            Settings7 = "[7] S${oDbl}t${eAc}t t${eAc}ma                - vil${aAc}gos / s${oUm}t${eAc}t v${aAc}lt${aAc}s"
             Settings8 = "[8] J${aAc}t${eAc}k m${oAc}d                  - be / ki"
             Settings9 = "[9] R${eAc}szletes bejelentkez${eAc}s     - ${uAc}zenetek be / ki"
             SettingsA = "[A] Windows hibajelent${eAc}s       - be / ki"
             SettingsB = "[B] F${aAc}jlkiterjeszt${eAc}sek        - megjelen${iAc}t${eAc}s be / ki"
             SettingsC = "[C] Vizu${aAc}lis effektek          - megjelen${eAc}s / teljes${iAc}tm${eAc}ny"
             SettingsD = "[D] Int${eAc}z${oDbl} indul${aAc}si hely      - Kezd${oDbl}lap / Ez a g${eAc}p"
-            SettingsE = "[E] Windows Copilot let${oDbl}lt${eAc}se - Microsoft Store megnyit${aAc}sa"
+            SettingsE = "[E] Windows Copilot let${oUm}lt${eAc}se - Microsoft Store megnyit${aAc}sa"
             SettingsBack = "[0] Vissza"
             TitlePowerPlan = "Ultimate energiaell${aAc}t${aAc}s"
             PowerPlanEnabled = "Az Ultimate Performance s${eAc}ma enged${eAc}lyezve lett, ${eAc}s most ez az akt${iAc}v."
             PowerPlanFailed = "Nem siker${uUm}lt enged${eAc}lyezni az Ultimate Performance s${eAc}m${aAc}t."
-            TitleStickyKeys = "Sticky Keys gyorsbillenty${uAc}"
-            StickyKeysDone = "A Sticky Keys gyorsbillenty${uAc} le lett tiltva enn${eAc}l a felhaszn${aAc}l${oAc}n${aAc}l."
-            StickyKeysFailed = "Nem siker${uUm}lt letiltani a Sticky Keys gyorsbillenty${uAc}t."
+            TitleStickyKeys = "Sticky Keys gyorsbillenty${uDbl}"
+            StickyKeysDone = "A Sticky Keys gyorsbillenty${uDbl} le lett tiltva enn${eAc}l a felhaszn${aAc}l${oAc}n${aAc}l."
+            StickyKeysFailed = "Nem siker${uUm}lt letiltani a Sticky Keys gyorsbillenty${uDbl}t."
             TitleTempCleanup = "Temp takar${iAc}t${aAc}s"
             TempCleanupDone = "Az ideiglenes f${aAc}jlok takar${iAc}t${aAc}sa befejez${oAc}d${oAc}tt."
             TempCleanupFailed = "Nem siker${uUm}lt befejezni az ideiglenes f${aAc}jlok takar${iAc}t${aAc}s${aAc}t."
@@ -1462,7 +1462,7 @@ function Start-NoxLab {
             (Get-Text 'Exit')
         )
 
-        Write-MenuFrame -Header (Get-Text 'MainMenu') -Items $items -Prompt 'Choose a menu option using your keyboard [1,2,3,4,5,6,7,8,9,0]'
+        Write-MenuFrame -Header (Get-Text 'MainMenu') -Items $items -Prompt 'Choose a menu option: [1,2,3,4,5,6,7,8,9,0]'
         $choice = (Read-Host).Trim().ToUpperInvariant()
 
         switch ($choice) {
@@ -1745,9 +1745,9 @@ function Start-NoxLab {
         )
 
         $promptText = if ($script:Language -eq 'hu') {
-            "Val${aAc}ssz men${uUm}pontot a billenty${uDbl}zettel [1,2,3,4,5,6,7,8,9,0]"
+            "Val${aAc}ssz men${uUm}pontot: [1,2,3,4,5,6,7,8,9,0]"
         } else {
-            'Choose a menu option using your keyboard [1,2,3,4,5,6,7,8,9,0]'
+            'Choose a menu option: [1,2,3,4,5,6,7,8,9,0]'
         }
         Write-MenuFrame -Header (Get-Text 'MainMenu') -Items $items -Prompt $promptText
         $choice = (Read-Host).Trim().ToUpperInvariant()
@@ -1876,9 +1876,9 @@ function Start-NoxLab {
     while ($true) {
         $option9 = if ($script:Language -eq 'hu') { '[9] 2. oldal' } else { '[9] Page 2' }
         $promptText = if ($script:Language -eq 'hu') {
-            "V${aAc}lassz men${uUm}pontot a billenty${uDbl}zettel [1,2,3,4,5,6,7,8,9,0]"
+            "V${aAc}lassz men${uUm}pontot [1,2,3,4,5,6,7,8,9,0]"
         } else {
-            'Choose a menu option using your keyboard [1,2,3,4,5,6,7,8,9,0]'
+            'Choose a menu option: [1,2,3,4,5,6,7,8,9,0]'
         }
 
         $items = @(
@@ -2104,6 +2104,48 @@ function Show-Page2Menu {
         switch ($choice) {
             '1' { Show-DebloatPanel }
             '2' { Open-LatestGpuDriverPage }
+            '0' { return }
+            default { }
+        }
+    }
+}
+
+function Start-NoxLab {
+    while ($true) {
+        $option9 = if ($script:Language -eq 'hu') { '[9] 2. oldal' } else { '[9] Page 2' }
+        $promptText = if ($script:Language -eq 'hu') {
+            "V${aAc}lassz men${uUm}pontot: [1,2,3,4,5,6,7,8,9,0]"
+        } else {
+            'Choose a menu option: [1,2,3,4,5,6,7,8,9,0]'
+        }
+
+        $items = @(
+            (Get-Text 'Option1'),
+            (Get-Text 'Option2'),
+            (Get-Text 'Option3'),
+            (Get-Text 'Option4'),
+            (Get-Text 'Option5'),
+            (Get-Text 'Option6'),
+            (Get-Text 'Option7'),
+            (Get-Text 'Option8'),
+            $option9,
+            'GitHub: github.com/noxian0  |  Discord: noxian_',
+            (Get-Text 'Exit')
+        )
+
+        Write-MenuFrame -Header (Get-Text 'MainMenu') -Items $items -Prompt $promptText
+        $choice = (Read-Host).Trim().ToUpperInvariant()
+
+        switch ($choice) {
+            '1' { Start-DummyAdminWindow }
+            '2' { Show-WindowsLicenseStatus }
+            '3' { Activate-WindowsByProductKey }
+            '4' { Pause-WindowsUpdates }
+            '5' { Resume-WindowsUpdates }
+            '6' { Show-PCDetails }
+            '7' { Show-SettingsMenu }
+            '8' { Show-PowerToolsMenu }
+            '9' { Show-Page2Menu }
             '0' { return }
             default { }
         }

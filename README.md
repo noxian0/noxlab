@@ -2,9 +2,18 @@
 
 Windows utility toolkit with debloat, system tools, maintenance shortcuts, and quick-access helpers in a console UI.
 
+## Screenshots
+
+![Main Menu](screenshots/mainmenu.png)
+
+![Language selector](screenshots/lang.png)
+
+![Logo](screenshots/logo.png)
+
 ## Features
 
---Massgrave import
+--[Massgrave](https://github.com/massgravel/Microsoft-Activation-Scripts) import +
+other functions:
 - Windows upadate pause and activation
 - System info page
 - Settings and maintenance tools
@@ -43,9 +52,18 @@ This project is still being actively adjusted and expanded.
 
 Windows segédeszköz-készlet debloat funkciókkal, rendszereszközökkel, karbantartási gyorsgombokkal és konzolos felülettel.
 
+## Képek
+
+![Fő menü](screenshots/mainmenu.png)
+
+![Nyelvválasztó](screenshots/lang.png)
+
+![Logó](screenshots/logo.png)
+
 ## Funkciók
 
---Massgrave import
+--[Massgrave](https://github.com/massgravel/Microsoft-Activation-Scripts) import +
+más funciók:
 - Windows frissítés szüneteltetése és Aktiválása
 - Rendszerinformációs oldal
 - Beállítások és karbantartási eszközök

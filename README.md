@@ -4,7 +4,8 @@ Windows utility toolkit with debloat, system tools, maintenance shortcuts, and q
 
 ## Features
 
---Massgrave import
+--Massgrave import +
+other functions:
 - Windows upadate pause and activation
 - System info page
 - Settings and maintenance tools
@@ -45,7 +46,8 @@ Windows segédeszköz-készlet debloat funkciókkal, rendszereszközökkel, karb
 
 ## Funkciók
 
---Massgrave import
+--Massgrave import +
+más funciók:
 - Windows frissítés szüneteltetése és Aktiválása
 - Rendszerinformációs oldal
 - Beállítások és karbantartási eszközök

@@ -249,7 +249,7 @@ $uDbl = [char]369   # ű
             PowerSettingsFailed = 'Could not open the Control Panel power button settings.'
         }
         hu = @{
-            MainMenu = "F${oDbl}men${uUm}"
+            MainMenu = "F${oUm}men${uUm}"
             MenuPrompt = "V${aAc}lassz men${uUm}pontot: [1,2,3,4,5,6,7,8,0]"
             LanguageMenu = "Nyelv V${aAc}laszt${aAc}s"
             LanguagePrompt = "V${aAc}lassz nyelvet [1,2,0]"

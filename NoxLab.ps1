@@ -317,17 +317,17 @@ $uDbl = [char]369   # ű
             SettingsPrompt = "V${aAc}lassz be${aAc}ll${iAc}t${aAc}st [1,2,3,4,5,6,7,8,9,A,B,C,D,E,0]"
             Settings1 = "[1] Ultimate energiaell${aAc}t${aAc}s    - bekapcsol${aAc}s ${eAc}s aktiv${aAc}l${aAc}s"
             Settings2 = "[2] Sticky Keys gyorsbillenty${uDbl}   - tilt${aAc}s"
-            Settings3 = "[3] Temp f${aAc}jlok t${oDbl}rl${eAc}se     - felhaszn${aAc}l${oAc}i ${eAc}s Windows temp"
+            Settings3 = "[3] Temp f${aAc}jlok t${oUm}rl${eAc}se     - felhaszn${aAc}l${oAc}i ${eAc}s Windows temp"
             Settings4 = "[4] Telemetria ${eAc}s rekl${aAc}mok   - gyakori adatv${eAc}delmi szab${aAc}lyok"
             Settings5 = "[5] Windows Copilot t${oDbl}rl${eAc}se   - tilt${aAc}s ${eAc}s elt${aAc}vol${iAc}t${aAc}s"
             Settings6 = "[6] Klasszikus helyi men${uUm}    - Windows 11 men${uUm} v${aAc}lt${aAc}s"
             Settings7 = "[7] S${oDbl}t${eAc}t t${eAc}ma                - vil${aAc}gos / s${oUm}t${eAc}t v${aAc}lt${aAc}s"
             Settings8 = "[8] J${aAc}t${eAc}k m${oAc}d                  - be / ki"
-            Settings9 = "[9] R${eAc}szletes bejelentkez${eAc}s     - ${uAc}zenetek be / ki"
+            Settings9 = "[9] R${eAc}szletes bejelentkez${eAc}s     - ${uUm}zenetek be / ki"
             SettingsA = "[A] Windows hibajelent${eAc}s       - be / ki"
             SettingsB = "[B] F${aAc}jlkiterjeszt${eAc}sek        - megjelen${iAc}t${eAc}s be / ki"
             SettingsC = "[C] Vizu${aAc}lis effektek          - megjelen${eAc}s / teljes${iAc}tm${eAc}ny"
-            SettingsD = "[D] Int${eAc}z${oDbl} indul${aAc}si hely      - Kezd${oDbl}lap / Ez a g${eAc}p"
+            SettingsD = "[D] Explorer indul${aAc}si hely      - Kezd${oDbl}lap / Ez a g${eAc}p"
             SettingsE = "[E] Windows Copilot let${oUm}lt${eAc}se - Microsoft Store megnyit${aAc}sa"
             SettingsBack = "[0] Vissza"
             TitlePowerPlan = "Ultimate energiaell${aAc}t${aAc}s"
@@ -377,7 +377,7 @@ $uDbl = [char]369   # ű
             VisualEffectsFailed = "Nem siker${uUm}lt ${aAc}tv${aAc}ltani a vizu${aAc}lis effekteket."
             TitleExplorerLaunch = "Int${eAc}z${oDbl} indul${aAc}si hely"
             ExplorerLaunchThisPc = "A F${aAc}jlkezel${oDbl} mostant${oAc}l az Ez a g${eAc}p n${eAc}zetre ny${iAc}lik."
-            ExplorerLaunchHome = "A F${aAc}jlkezel${oDbl} mostant${oAc}l a Kezd${oAc}lapra ny${iAc}lik."
+            ExplorerLaunchHome = "A F${aAc}jlkezel${oDbl} mostant${oAc}l a Kezd${oDbl}lapra ny${iAc}lik."
             ExplorerLaunchFailed = "Nem siker${uUm}lt ${aAc}tv${aAc}ltani a F${aAc}jlkezel${oDbl} indul${aAc}si hely${eAc}t."
             TitleMassgrave = 'MASSGRAVE'
             DummyOpened = "Megny${iAc}lt egy ${uAc}j emelt PowerShell ablak."
@@ -1202,6 +1202,10 @@ function Toggle-VisualEffects {
 function Toggle-ExplorerLaunchTarget {
     try {
         $path = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+        if (-not (Test-Path $path)) {
+            New-Item -Path $path -Force | Out-Null
+        }
+
         $current = (Get-ItemProperty -Path $path -Name 'LaunchTo' -ErrorAction SilentlyContinue).LaunchTo
         $mode = if ($null -eq $current) { 2 } else { [int]$current }
 
@@ -1214,9 +1218,12 @@ function Toggle-ExplorerLaunchTarget {
         }
 
         New-ItemProperty -Path $path -Name 'LaunchTo' -PropertyType DWord -Value $newValue -Force | Out-Null
+        Stop-Process -Name explorer -Force -ErrorAction SilentlyContinue
+        Start-Process explorer.exe
 
         Show-MessageScreen -Title (Get-Text 'TitleExplorerLaunch') -Lines @(
-            $message
+            $message,
+            $(if ($script:Language -eq 'hu') { 'Az Explorer ujraindult a modositas alkalmazasahoz.' } else { 'Explorer was restarted to apply the change.' })
         ) -AccentColor Green
     } catch {
         Show-MessageScreen -Title (Get-Text 'TitleExplorerLaunch') -Lines @(
@@ -1990,6 +1997,83 @@ function Invoke-DebloatRemoval {
     }
 
     Show-MessageScreen -Title 'Debloat Remove Results' -Lines $results -AccentColor Yellow
+}
+
+function Toggle-ExplorerLaunchTarget {
+    try {
+        $path = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+        if (-not (Test-Path $path)) {
+            New-Item -Path $path -Force | Out-Null
+        }
+
+        $current = (Get-ItemProperty -Path $path -Name 'LaunchTo' -ErrorAction SilentlyContinue).LaunchTo
+        $mode = if ($null -eq $current) { 2 } else { [int]$current }
+
+        if ($mode -eq 1) {
+            $newValue = 2
+            $message = Get-Text 'ExplorerLaunchHome'
+        } else {
+            $newValue = 1
+            $message = Get-Text 'ExplorerLaunchThisPc'
+        }
+
+        Set-ItemProperty -Path $path -Name 'LaunchTo' -Value $newValue -Type DWord
+
+        Show-MessageScreen -Title (Get-Text 'TitleExplorerLaunch') -Lines @(
+            $message,
+            $(if ($script:Language -eq 'hu') { 'A valtozas a kovetkezo Explorer megnyitasnal lesz lathato.' } else { 'The change will be visible the next time File Explorer is opened.' })
+        ) -AccentColor Green
+    } catch {
+        Show-MessageScreen -Title (Get-Text 'TitleExplorerLaunch') -Lines @(
+            (Get-Text 'ExplorerLaunchFailed'),
+            $_.Exception.Message
+        ) -AccentColor Yellow
+    }
+}
+
+function Show-SettingsMenu {
+    while ($true) {
+        $items = @(
+            (Get-Text 'Settings1'),
+            (Get-Text 'Settings2'),
+            (Get-Text 'Settings3'),
+            (Get-Text 'Settings4'),
+            (Get-Text 'Settings5'),
+            (Get-Text 'Settings6'),
+            (Get-Text 'Settings7'),
+            (Get-Text 'Settings8'),
+            (Get-Text 'Settings9'),
+            (Get-Text 'SettingsA'),
+            (Get-Text 'SettingsB'),
+            (Get-Text 'SettingsC'),
+            (Get-Text 'SettingsD'),
+            (Get-Text 'SettingsE'),
+            '',
+            (Get-Text 'SettingsBack')
+        )
+
+        Write-MenuFrame -Header (Get-Text 'SettingsMenu') -Items $items -Prompt (Get-Text 'SettingsPrompt')
+        $choice = (Read-Host).Trim().ToUpperInvariant()
+
+        switch ($choice) {
+            '1' { Enable-UltimatePowerPlan }
+            '2' { Disable-StickyKeysHotkey }
+            '3' { Remove-TempFiles }
+            '4' { Disable-TelemetryAndAds }
+            '5' { Remove-WindowsCopilot }
+            '6' { Toggle-ClassicContextMenu }
+            '7' { Toggle-DarkTheme }
+            '8' { Toggle-GameMode }
+            '9' { Toggle-VerboseLogon }
+            'A' { Toggle-WindowsErrorReporting }
+            'B' { Toggle-FileExtensions }
+            'C' { Toggle-VisualEffects }
+            'D' { Toggle-ExplorerLaunchTarget }
+            'E' { Open-CopilotStorePage }
+            '0' { return }
+            default { }
+        }
+    }
 }
 
 function Open-LatestGpuDriverPage {

@@ -1,21 +1,67 @@
-MIT License
+Copyright (c) 2026 noxian0 | (https://github.com/noxian0/noxlab) . All rights reserved.
 
-Copyright (c) 2026 noxian0
+NoxLab Custom License Agreement
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+1. Ownership
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+NoxLab and all included scripts, launchers, text, interface elements, and bundled project files are the intellectual property of the author, noxian0, unless otherwise noted.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+2. Personal Use
+
+You may download, run, and use this project for personal, non-commercial use on your own devices.
+
+3. What You May Not Do
+
+Without explicit written permission from the author, you may not:
+
+- sell this software
+- license this software to others for payment
+- redistribute this software as your own work
+- reupload this software unchanged under another name or account
+- package this software inside another product, toolkit, installer, or paid bundle
+- remove author credit and source attribution
+
+4. Modifications and Publishing
+
+You may modify this project and publish your modified version only if all of the following are true:
+
+- clear credit to the original author, noxian0, is retained
+- the original project name or source is clearly referenced
+- a visible source link to the original repository is included
+- your published version clearly states that it is modified and unofficial
+- is free to access and download without payment or subscription
+
+Publishing a modified version without visible attribution to the original source is not permitted.
+
+5. Commercial Restriction
+
+This project may not be sold, sublicensed, rented, monetized, or distributed as part of any commercial offering without explicit written permission from the author.
+
+6. Organizational / Corporate Use Warning
+
+Any feature, script, or external resource linked by this project that affects licensing, activation, system policy, or preinstalled software should be used only on personally owned devices where you are authorized to make those changes.
+
+Do not use such features on:
+
+- company-owned computers
+- school-owned devices
+- client machines without explicit permission
+- managed enterprise environments
+
+The user is solely responsible for ensuring lawful and authorized use.
+
+7. Third-Party Tools and Links
+
+NoxLab may open or link to third-party websites, packages, or tools. Those external resources are governed by their own terms, policies, and legal restrictions. The author of NoxLab is not responsible for third-party content or misuse by end users.
+
+8. No Warranty
+
+This software is provided "as is", without warranty of any kind, express or implied, including but not limited to fitness for a particular purpose, reliability, or noninfringement.
+
+9. Liability
+
+The author is not liable for any damage, data loss, misuse, legal consequences, or system instability caused by use, misuse, modification, or redistribution of this project.
+
+10. Acceptance
+
+By using, modifying, copying, or publishing this project, you agree to the terms of this license.

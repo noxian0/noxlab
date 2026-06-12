@@ -42,6 +42,12 @@ This is the main launcher.
 - Debloat actions work best when NoxLab is started as administrator.
 - Hungarian special characters may depend on the console font being used.
 
+## Warning
+
+- Use NoxLab only on devices you personally own or are explicitly authorized to manage.
+- Do not use licensing, activation, or system-altering actions on company, school, client, or other managed devices.
+- Any third-party tool opened by NoxLab should be used responsibly and only where you have clear permission.
+
 ## Status
 
 This project is still being actively adjusted and expanded.
@@ -91,6 +97,12 @@ Ez a fő indítófájl.
 - Egyes funkciók rendszergazdai jogosultságot igényelnek.
 - A debloat műveletek akkor működnek a legjobban, ha a NoxLab rendszergazdaként indul.
 - A magyar speciális karakterek megjelenése függhet a használt konzol betűtípusától.
+
+## Figyelmeztetés
+
+- A NoxLabot csak saját tulajdonú vagy kifejezetten kezelt eszközökön használd.
+- Ne használj licencelési, aktiválási vagy rendszermódosító funkciókat céges, iskolai, ügyfélhez tartozó vagy egyéb felügyelt gépeken.
+- A NoxLab által megnyitott külső eszközöket és oldalakat csak felelősséggel, megfelelő jogosultság mellett használd.
 
 ## Állapot
 

@@ -4,7 +4,7 @@ Windows utility toolkit with debloat, system tools, maintenance shortcuts, and q
 
 ## Features
 
---Massgrave import +
+--[Massgrave](https://github.com/massgravel/Microsoft-Activation-Scripts) import +
 other functions:
 - Windows upadate pause and activation
 - System info page
@@ -46,7 +46,7 @@ Windows segédeszköz-készlet debloat funkciókkal, rendszereszközökkel, karb
 
 ## Funkciók
 
---Massgrave import +
+--[Massgrave](https://github.com/massgravel/Microsoft-Activation-Scripts) import +
 más funciók:
 - Windows frissítés szüneteltetése és Aktiválása
 - Rendszerinformációs oldal
